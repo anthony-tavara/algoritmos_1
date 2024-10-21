@@ -1,21 +1,24 @@
 #include <stdio.h>
 
-typedef int t_vec[10];
+#define MF 10
+typedef int t_vec[MF];
 
-void devolver_capicua(int t_vec){
-	printf("%i",t_vec);
+void devolver_capicua(t_vec vector,int ml){
+	int i;
+	for(i=0;i<ml;i++){
+		printf("%i\n",vector[ml]);		
+	}
 }
 
 void main(){
 	t_vec vector; 
-	int num,posicion=0;
+	int num,pos=0;
 	do{	
 		printf("Ingrese número: ");
 		scanf("%i",&num);
-		vector[posicion]=num;
-		posicion++;
+		printf("%i",num);
+		vector[pos]=num;
+		pos++;
 	}while(num!=0);
-	devolver_capicua(vector);
-
-	
+	devolver_capicua(vector,pos);
 }
