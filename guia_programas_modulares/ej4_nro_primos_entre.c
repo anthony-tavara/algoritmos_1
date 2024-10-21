@@ -21,8 +21,6 @@ void primos_entre(int num1,int num2){
 	while(num1<=num2){
 		if(es_primo(num1))
 			printf("%i es primo.\n",num1);
-		else
-			printf("%i no es primo\n",num1);
 		num1++;
 	}
 }
@@ -34,7 +32,7 @@ int main(){
 	scanf("%i",&num1);
 	printf("Ingrese el segundo número: ");
 	scanf("%i",&num2);
-	if (num1<num2)
+	if (num1>0 && num2>0 && num1<=num2)
 		primos_entre(num1,num2);	
 	else
 		printf("num1 no es menor que num2");
