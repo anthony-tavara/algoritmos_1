@@ -6,16 +6,15 @@ typedef int t_vec[MF];
 
 bool es_capicua(t_vec vector,int ml){
 	int i;
-	int coincidencias=0;
-	for(i=0;i<ml;i++){
-		if(vector[i]==vector[ml-i]){
-			coincidencias++;
+	for(i=0;i<ml/2;i++){
+		if(vector[i]!=vector[ml-i-1]){
+			return false; //no es capicua ya que no coincide
 		}
 	}
-	return (coincidencias==((ml-1)/2));
+	return true; //si no hubo diferencias, es capicua
 }
 
-void main(){
+int main(){
 	t_vec vector; 
 	int num,pos=0;
 	do{	
@@ -27,5 +26,10 @@ void main(){
 			pos++;
 		}
 	}while(num!=0);
-	printf("%i",es_capicua(vector,pos));
+	
+	if (es_capicua(vector,pos))
+		printf("Es capicua\n");
+	else
+		printf("No es capicua");
+	return 0;
 }
