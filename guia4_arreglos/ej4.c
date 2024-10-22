@@ -8,17 +8,19 @@ el valor máximo, la cantidad de veces que aparece la/s posición/es que ocupa.*
 
 typedef float t_vec[MF];
 
-int veces_se_encuentra_max(t_vec vector,int maximo,int ml){
+int veces_se_encuentra_max(t_vec vector,float maximo,int ml){
 	int i,cant_veces_max=0;
 	for(i=0;i<ml;i++)
 		if(vector[i]==maximo){
 			cant_veces_max++;
-			printf("La posicion en que se encuentra %i es: %i\n",maximo,i);
+			printf("La posicion en que se encuentra %.2f es: %i\n",maximo,i);
 	}
+	return cant_veces_max;
 }
 
-int valor_max(t_vec vector,int ml){
-	int i,maximo=0;
+float valor_max(t_vec vector,int ml){
+	int i;
+	float maximo=vector[0];
 	for(i=0;i<ml;i++)
 		if(vector[i]>maximo)
 			maximo=vector[i];	
@@ -36,12 +38,13 @@ void cargar_datos(t_vec vector,int ml){
 }
 
 int main(){
-	int ml,maximo;
+	int ml;
+	float maximo;
 	t_vec vector;	
 	printf("Ingrese la cantidad de caracteres: ");
 	scanf("%i",&ml);	
 	cargar_datos(vector,ml);
 	maximo=valor_max(vector,ml);
-	printf("El máximo es %i y se encuentra %i veces.\n",maximo,veces_se_encuentra_max(vector,maximo,ml));	
+	printf("El máximo es %.2f y se encuentra %i veces.\n",maximo,veces_se_encuentra_max(vector,maximo,ml));	
 	return 0;		
 }
