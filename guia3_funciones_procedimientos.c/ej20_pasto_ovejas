@@ -1,0 +1,20 @@
+/*Un pastor cuenta sus ovejas. Le sobre siempre una si las cuenta de la siguiente forma: de 3 en 3, de 5 en 5, de 6 en 6,
+o de 9 en 9. En cambio si las cuenta de 7 en 7 no le sobra ninguna. Se pide escribir un programa que le permita obtener
+ese valor, sabiendo que el número de ovejas no supera el millar.*/
+
+#include <stdio.h>
+#include <stdbool.h>
+
+bool hallar_valor(int num){
+	if(num%3==1 && num%5==1 && num%6==1 && num%9==1 && num%7==0 && num<1000)
+		return true;
+	return false;
+}
+
+int main(){
+	int i;
+	for(i=0;i<10000;i++)
+		if(hallar_valor(i))
+			printf("El número de obejas es: %i\n",i);
+	return 0;
+}
