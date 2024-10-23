@@ -13,7 +13,7 @@ void multiplicar_matrices(t_mat matriz_1,t_mat matriz_2,int mlf,int mlc){
 	t_mat multi_matrices;
 	for(i=0;i<=mlf;i++)
 		for(j=0;j<=mlc;j++)
-			multi_matrices[i][j]=matriz_1[i][j]*matriz_2[i][j];
+			multi_matrices[i][j]=matriz_1[i][0]*matriz_2[0][j]+matriz_1[i][1]*matriz_2[1][j]+matriz_1[i][2]*matriz_2[2][j];
 }
 
 void cargar_matriz(t_mat matriz,int mlf,int mlc){
