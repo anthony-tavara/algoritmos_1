@@ -23,23 +23,40 @@ typedef char t_cadena[MF];
 
 void invertir_cadena(t_cadena cad, t_cadena cad_invertida,int ml){
 	int i=0;
-	for(;ml>=0;ml--){
+	for(ml=ml-1;ml>=0;ml--){
 //		printf("%i",ml);
 		if(cad[ml]!=' '){
 			cad_invertida[i]=cad[ml];
 			i++;
-			printf("%s",cad_invertida);
-
 		}
-		printf("%s",cad_invertida);
 	}	
+	cad_invertida[i+1]='\0';
 }
 int main(){
 	int ml;
-	t_cadena cad = "Hola, me llamo Ana.";
-	t_cadena cad_invertida;
-	ml=strlen(cad);
-	invertir_cadena(cad,cad_invertida,ml);
-//	printf("cadena\t cadena invertida\n");
-//	printf("%s %s",cad,cad_invertida);
+	t_cadena cad1 = "Hola, me llamo Ana.";
+	t_cadena cad2 = "234561";
+	t_cadena cad3 = "   ";
+	t_cadena cad4 = "Somos o Nos somos";
+
+	t_cadena cad_invertida1;
+	t_cadena cad_invertida2;
+	t_cadena cad_invertida3;
+	t_cadena cad_invertida4;
+
+	ml=strlen(cad1);
+	invertir_cadena(cad1,cad_invertida1,ml);
+	printf("Cadena: '%s'\t\tINV: '%s'\n",cad1,cad_invertida1);
+
+	ml=strlen(cad2);
+	invertir_cadena(cad2, cad_invertida2,ml);
+	printf("Cadena: '%s'\t\t\tINV: '%s'\n",cad2,cad_invertida2);	
+
+	ml=strlen(cad3);
+	invertir_cadena(cad3, cad_invertida3,ml);
+	printf("Cadena: '%s'\t\t\t\tINV:  '%s'\n",cad3,cad_invertida3);	
+
+	ml=strlen(cad4);
+	invertir_cadena(cad4, cad_invertida4,ml);
+	printf("Cadena: '%s'\t\tINV: '%s'\n",cad4,cad_invertida4);	
 }
