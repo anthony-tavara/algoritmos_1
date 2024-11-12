@@ -19,7 +19,7 @@ cant_palabras("      ") //devuelve 0                 */
 typedef char t_cadena[MF];
 
 int cant_palabras(t_cadena cadena){
-	int i;
+	int i=0;
 	int cant_palabras=0;
 	int en_palabra=0;
 	
