@@ -26,20 +26,19 @@ bool validar(t_cad clave){
 	bool cant_pares_mayor_impares=false;
 	unsigned int i=0,cant_pares=0,cant_impares=0;
 	
-	while( clave[i]!='\0' || (clave[i]>0 && clave[i]<9) ){
+	while( clave[i]!='\0' && (clave[i]>='0' && clave[i]<='9') ){
 		if(clave[i]%2==0)
 			cant_pares++;
 		else
 			cant_impares++;
 		i++;
 	}
-	if(i==(strlen(clave))){
+	if(i==(strlen(clave)))
 		clave_numerica=true;
-		printf("Es numerica\n");
-	}	
-	if(strlen(clave)>6 && strlen(clave)<13)
-		cant_caracteres=true;
 		
+	if(strlen(clave)>=6 && strlen(clave)<=12)
+		cant_caracteres=true;
+
 	if(cant_pares>cant_impares)
 		cant_pares_mayor_impares=true;
 
