@@ -21,16 +21,30 @@ typedef struct{
 	float nota;
 }t_regAlumno;
 
-int main(void){
+void listar_contenido(FILE *archivo){
 	t_regAlumno alumno;
-	FILE *archivo = fopen("ej1.txt","r");
-	
-	while ( !feof(archivo) ){
-		fread(&alumno,sizeof(t_regAlumno),1,archivo);
-	    printf("Padrón: %d\nNombre: %s\nNota: %.2f\n\n", alumno.padron, alumno.ape_nom, alumno.nota);
+	int i=1;
+	fread(&alumno,sizeof(t_regAlumno),1,archivo);
+	while(!feof(archivo)){
+		printf("ALUMNO NRO %i\n",i);
+		printf("Padron: %i\n",alumno.padron);
+		printf("Apellido y nombre: %s\n",alumno.ape_nom);
+		printf("Nota: %2.f\n\n",alumno.nota);	
+		fread(&alumno,sizeof(t_regAlumno),1,archivo);	
+		i++;
 	}
-
 	fclose(archivo);
+}
 
+int main(void){	
+	FILE *archivo;
+
+	archivo=fopen("ej1.txt","rb");
+
+	if(archivo == NULL){
+		printf("Archivo no encontrado");
+	}else{
+		listar_contenido(archivo);
+	}
 }
 
