@@ -7,21 +7,24 @@ es capicúa.
 #include <stdbool.h>
 
 bool es_capicua(int num){
-//	if(num>10)
-//		return true;
+	int aux = sizeof(num);
 	
-	if(num%10==num/100){
+	if(num<10)
 		return true;
-	}else{
-		return (es_capicua(num/100));
+	else if(num<100)
+		return (num/10 == num%10);
+	else{
+		if((num/((aux-1)*10))==num%10){
+			return es_capicua(num/100);
+		}
+		else
+			return false;	
 	}
-	
 }
 int main(){
-	int num=23454312;
+	int num=2345432;
 	if(es_capicua(num))
 		printf("%i es capicua",num);
 	else
 		printf("%i no es capicua",num);
-
 }
